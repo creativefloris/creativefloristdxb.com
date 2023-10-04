@@ -8,6 +8,20 @@
 * Author URI: https://nsreem.com/
 **/
 
+/**
+ * Change a currency symbol
+ */
+add_filter('woocommerce_currency_symbol', 'change_existing_currency_symbol', 10, 2);
+
+function change_existing_currency_symbol( $currency_symbol, $currency ) {
+     switch( $currency ) {
+          case 'AED': $currency_symbol = 'AED'; break;
+     }
+     return $currency_symbol;
+}
+
+/**/
+
 function md_custom_woocommerce_checkout_fields( $fields ) 
 {
     $fields['order']['order_comments']['placeholder'] = 'Add your special note';
